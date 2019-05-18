@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.26885952141677855 0.9456304955902679 0.18302328691520334 1.2137984190627535
-  position 0.9306351594395115 1.0951386570817252 0.26018528971298105
+  orientation -0.069451168287931 0.9973778193606057 0.020347497903289276 0.5714184378568544
+  position 1.3233322133915801 0.21980097835501242 1.9650733819948054
 }
 TexturedBackground {
 }
@@ -12,19 +12,91 @@ TexturedBackgroundLight {
 Floor {
 }
 Solid {
-  translation 0 0.75 0
+  translation 0 0.44 0
   children [
     Group {
       children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.6 0.4 0.2
-          }
-          geometry Box {
-            size 0.01 0.01 0.15
-          }
+        DEF G_STANDINGBARS Group {
+          children [
+            DEF S_BAR1 Shape {
+              appearance DEF C_STRUCTURE PBRAppearance {
+                baseColor 0.12774853131914243 0.9997558556496529 0.9990386816205081
+              }
+              geometry DEF G_CYLBAR Cylinder {
+                height 0.7
+                radius 0.019999999999999997
+              }
+            }
+            DEF S_BAR2 Transform {
+              translation 0.4 0 0
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_CYLBAR
+                }
+              ]
+            }
+            DEF S_BAR3 Transform {
+              translation 0 0 0.4
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_CYLBAR
+                }
+              ]
+            }
+            DEF S_BAR4 Transform {
+              translation 0.4 0 0.4
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_CYLBAR
+                }
+              ]
+            }
+          ]
         }
-        Shape {
+        DEF G_BARSCOVER Group {
+          children [
+            DEF S_SPHERE1 Transform {
+              translation 0 -0.35 0
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry DEF G_SPHERE Sphere {
+                    radius 0.02
+                  }
+                }
+              ]
+            }
+            DEF S_SPHERE2 Transform {
+              translation 0.4 -0.35 0
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_SPHERE
+                }
+              ]
+            }
+            DEF S_SPHERE3 Transform {
+              translation 0 -0.35 0.4
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_SPHERE
+                }
+              ]
+            }
+            Transform {
+              translation 0.4 -0.35 0.4
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_SPHERE
+                }
+              ]
+            }
+          ]
         }
       ]
     }
