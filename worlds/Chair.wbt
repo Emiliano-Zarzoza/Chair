@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.022394469585827075 -0.9835256138968655 -0.1793762931403241 2.8972367268704207
-  position 0.15123877613582337 0.9444236801443265 -1.426424679652736
+  orientation -0.24307671611276854 0.9191045049777996 0.31009775718851396 1.8929413108741546
+  position 1.7004378320245597 1.4840474705317195 -0.04320825365360145
 }
 TexturedBackground {
 }
@@ -12,7 +12,7 @@ TexturedBackgroundLight {
 Floor {
 }
 Solid {
-  translation 0 0.37 0
+  translation 0 0.34 0
   rotation 0 0 1 0
   children [
     Group {
@@ -20,7 +20,7 @@ Solid {
         DEF G_STANDINGBARS Group {
           children [
             DEF S_BAR Transform {
-              rotation 0.7071067811865475 0 -0.7071067811865475 0.2617996938995747
+              rotation 0.7071067811865475 0 -0.7071067811865475 0.47
               children [
                 Shape {
                   appearance DEF C_STRUCTURE PBRAppearance {
@@ -35,7 +35,7 @@ Solid {
             }
             DEF S_BAR2 Transform {
               translation 0.4 0 0
-              rotation 0.7071067811865475 0 0.7071067811865475 0.26
+              rotation 0.7071067811865475 0 0.7071067811865475 0.47
               children [
                 Shape {
                   appearance USE C_STRUCTURE
@@ -45,7 +45,7 @@ Solid {
             }
             DEF S_BAR3 Transform {
               translation 0 0 0.4
-              rotation -0.7071067811865475 0 -0.7071067811865475 0.2617996938995747
+              rotation -0.7071067811865475 0 -0.7071067811865475 0.47
               children [
                 Shape {
                   appearance USE C_STRUCTURE
@@ -55,7 +55,7 @@ Solid {
             }
             DEF S_BAR4 Transform {
               translation 0.4 0 0.4
-              rotation 0.7071067811865475 0 -0.7071067811865475 -0.2617996938995747
+              rotation -0.7071067811865475 0 0.7071067811865475 0.47
               children [
                 Shape {
                   appearance USE C_STRUCTURE
@@ -68,31 +68,36 @@ Solid {
         DEF G_BARSCOVER Group {
           children [
             DEF S_SPHERE1 Transform {
-              translation 0 -0.35 0
+              translation -0.116 -0.32 -0.115
               children [
                 Shape {
-                  appearance DEF C_STRUCTURE PBRAppearance {
-                    baseColor 0.12774853131914243 0.9997558556496529 0.9990386816205081
-                  }
+                  appearance USE C_STRUCTURE
                   geometry DEF G_SPHERE Sphere {
-                    radius 0.02
+                    radius 0.025
                   }
                 }
               ]
             }
             DEF S_SPHERE2 Transform {
-              translation 0.4 -0.35 0
+              translation 0.516 -0.32 -0.115
               children [
                 Shape {
-                  appearance DEF C_STRUCTURE PBRAppearance {
-                    baseColor 0.12774853131914243 0.9997558556496529 0.9990386816205081
-                  }
+                  appearance USE C_STRUCTURE
                   geometry USE G_SPHERE
                 }
               ]
             }
             DEF S_SPHERE3 Transform {
-              translation 0 -0.35 0.4
+              translation -0.116 -0.32 0.515
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_SPHERE
+                }
+              ]
+            }
+            DEF S_SPHERE4 Transform {
+              translation 0.516 -0.32 0.515
               children [
                 Shape {
                   appearance DEF C_STRUCTURE PBRAppearance {
@@ -102,14 +107,17 @@ Solid {
                 }
               ]
             }
-            DEF S_SPHERE4 Transform {
-              translation 0.4 -0.35 0.4
+          ]
+        }
+        DEF G_BOX1 Group {
+          children [
+            DEF S_BOX Transform {
               children [
                 Shape {
-                  appearance DEF C_STRUCTURE PBRAppearance {
-                    baseColor 0.12774853131914243 0.9997558556496529 0.9990386816205081
+                  appearance USE C_STRUCTURE
+                  geometry DEF G_BOX1 Box {
+                    size 0.15 0.15 0.15
                   }
-                  geometry USE G_SPHERE
                 }
               ]
             }
@@ -125,9 +133,10 @@ Solid {
     Shape {
       appearance DEF C_BOX PBRAppearance {
         baseColor 0.1313496604867628 0.9996795605401694 0.02362096589608606
+        transparency 0.1
       }
       geometry Box {
-        size 0.341995 0.341995 0.3419951893
+        size 0.4 0.4 0.4
       }
     }
   ]
@@ -139,7 +148,7 @@ Solid {
     Shape {
       appearance USE C_BOX
       geometry Box {
-        size 0.2466212074 0.246621 0.246621
+        size 0.15 0.15 0.15
       }
     }
   ]
