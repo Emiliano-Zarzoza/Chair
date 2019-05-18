@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.24307671611276854 0.9191045049777996 0.31009775718851396 1.8929413108741546
-  position 1.7004378320245597 1.4840474705317195 -0.04320825365360145
+  orientation 1 0 0 4.71238898038469
+  position 0.2302921752007223 1.4424054141342473 0.1963731726517789
 }
 TexturedBackground {
 }
@@ -111,13 +111,43 @@ Solid {
         }
         DEF G_BOX1 Group {
           children [
-            DEF S_BOX Transform {
+            DEF S_BOXBAR1 Transform {
+              translation 0.075 0.30000000000000004 0.19999999999999998
               children [
                 Shape {
                   appearance USE C_STRUCTURE
                   geometry DEF G_BOX1 Box {
-                    size 0.15 0.15 0.15
+                    size 0.01 0.01 0.21000000000000002
                   }
+                }
+              ]
+            }
+            DEF S_BOXBAR2 Transform {
+              translation 0.3200000000000001 0.3 0.2
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_BOX1
+                }
+              ]
+            }
+            DEF S_BOXBAR3 Transform {
+              translation 0.2 0.3 0.06999999999999999
+              rotation 0 1 0 1.5707996938995747
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_BOX1
+                }
+              ]
+            }
+            DEF S_BOXBAR4 Transform {
+              translation 0.2 0.3 0.32
+              rotation 0 1 0 1.5707996938995747
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_BOX1
                 }
               ]
             }
@@ -133,7 +163,7 @@ Solid {
     Shape {
       appearance DEF C_BOX PBRAppearance {
         baseColor 0.1313496604867628 0.9996795605401694 0.02362096589608606
-        transparency 0.1
+        transparency 0.26
       }
       geometry Box {
         size 0.4 0.4 0.4
@@ -143,7 +173,7 @@ Solid {
   name "solid(1)"
 }
 Solid {
-  translation 0.2 0.6 0.2
+  translation 0.19999999999999998 1.5 0.2
   children [
     Shape {
       appearance USE C_BOX
