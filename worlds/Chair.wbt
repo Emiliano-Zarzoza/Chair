@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.38675513136083894 -0.9208618624184154 -0.04933455897590929 6.007891981711763
-  position 0.694338371778717 0.702314751508694 2.1027973249227903
+  orientation -0.033945469947995896 0.9636081033313375 0.2651549137093107 2.8961082475367492
+  position 0.786362310511187 1.1575703370384751 -1.2681792545364738
 }
 TexturedBackground {
 }
@@ -155,12 +155,14 @@ Solid {
         }
         DEF G_BASE Group {
           children [
-            Transform {
+            DEF S_SIT Transform {
               translation 0.2 0.325 0.2
               children [
                 Shape {
-                  appearance USE C_STRUCTURE
-                  geometry Cylinder {
+                  appearance DEF C_SIT PBRAppearance {
+                    baseColor 0.9862516212710766 0.007125963225757229 0.027435721370260166
+                  }
+                  geometry DEF G_SIT Cylinder {
                     height 0.01
                     radius 0.15
                   }
@@ -169,22 +171,51 @@ Solid {
             }
           ]
         }
+        DEF G_BOX2 Group {
+          children [
+            DEF S_BOX2BAR1 Transform {
+              translation 0.019999999999999997 0.12000000000000001 0.2
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry DEF G_BOX2BAR1 Box {
+                    size 0.01 0.01 0.32
+                  }
+                }
+              ]
+            }
+            DEF S_BOX2BAR2 Transform {
+              translation 0.19999999999999998 0.12 0.019999999999999997
+              rotation 0 1 0 1.5707996938995747
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_BOX2BAR1
+                }
+              ]
+            }
+            DEF S_BOX2BAR3 Transform {
+              translation 0.385 0.12 0.2
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_BOX2BAR1
+                }
+              ]
+            }
+            DEF S_BOX2BAR4 Transform {
+              translation 0.2 0.12 0.39
+              rotation 0 1 0 1.5707996938995747
+              children [
+                Shape {
+                  appearance USE C_STRUCTURE
+                  geometry USE G_BOX2BAR1
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
   ]
-}
-Solid {
-  translation 0.2 0.1714975 0.2
-  children [
-    Shape {
-      appearance DEF C_BOX PBRAppearance {
-        baseColor 0.1313496604867628 0.9996795605401694 0.02362096589608606
-        transparency 0.26
-      }
-      geometry Box {
-        size 0.4 0.4 0.4
-      }
-    }
-  ]
-  name "solid(1)"
 }
